@@ -1,0 +1,16 @@
+{
+  "name": "phishingan",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Browser tests for the PhishinGAN extension engine.",
+  "scripts": {
+    "test:scenarios": "node scripts/test_page_scenarios.mjs",
+    "test:dom": "node scripts/test_content_dom.mjs",
+    "test:parity": "node scripts/validate_js_model.mjs",
+    "test:extension": "node scripts/check_extension.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}

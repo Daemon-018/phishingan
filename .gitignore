@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# local environment
+.venv/
+venv/
+.env
+
+# JavaScript test dependency
+node_modules/
+npm-debug.log*
+
+# datasets (download with `phishingan build-data`)
+data/raw/
+data/processed/
+data/samples/
+
+# model artifacts: keep the shipped extension model and the demo artifact
+models/*.joblib
+!models/phishingan.joblib
+
+# reports: keep the published metrics, ignore scratch output
+reports/*.json
+!reports/metrics.json
+!reports/experiments.json
+reports/figures/
+
+# OS noise
+.DS_Store
+Thumbs.db

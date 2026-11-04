@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PhishinGAN — AI-generated phishing detector</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="/">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2.5 4.5 5.6v5.6c0 4.5 3.1 8.7 7.5 10.3 4.4-1.6 7.5-5.8 7.5-10.3V5.6L12 2.5Z"/>
+        <path class="brand-check" d="m8.4 11.8 2.4 2.4 4.8-4.9"/>
+      </svg>
+      <span>Phish<strong>Guard</strong></span>
+    </a>
+    <div class="topbar-meta">
+      <span class="pill">AI-generated phishing detection</span>
+      <a class="ghost-link" href="/api/health" target="_blank" rel="noreferrer">API health</a>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel input-panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Inspect a message</p>
+          <h1>Paste an email or chat message.</h1>
+        </div>
+        <span class="counter" id="charCount">0 chars</span>
+      </div>
+
+      <label class="sr-only" for="messageInput">Message to analyse</label>
+      <textarea id="messageInput" spellcheck="false" placeholder="Subject: ...&#10;From: ...&#10;&#10;Paste the message body here. Headers are optional but help."></textarea>
+
+      <div class="sample-row">
+        <span class="sample-label">Try a sample</span>
+        <div class="chips" id="sampleChips"></div>
+      </div>
+
+      <div class="actions">
+        <label class="switch">
+          <input type="checkbox" id="rawToggle" />
+          <span>Show raw JSON</span>
+        </label>
+        <button class="scan-btn" id="scanBtn">
+          <span>Analyze message</span>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg>
+        </button>
+      </div>
+
+      <p class="hint">
+        Links are parsed as text and <strong>never opened</strong>. Nothing leaves this machine.
+        <span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> to scan.
+      </p>
+      <p class="error" id="errorBox" hidden></p>
+    </section>
+
+    <section class="panel result-panel" aria-live="polite">
+      <div class="empty-state" id="emptyState">
+        <div class="radar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <i></i>
+        </div>
+        <h2>Waiting for a message</h2>
+        <p>The result will show a risk score, the model/rules split, concrete reasons, and every link it found.</p>
+      </div>
+
+      <div id="resultContent" hidden>
+        <div class="verdict-row">
+          <div class="gauge-wrap">
+            <svg class="gauge" viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="gauge-track" cx="60" cy="60" r="52"></circle>
+              <circle class="gauge-fill" id="gaugeFill" cx="60" cy="60" r="52"></circle>
+            </svg>
+            <div class="gauge-label">
+              <span id="riskScore">0</span>
+              <small>/ 100</small>
+            </div>
+          </div>
+          <div class="verdict-copy">
+            <span class="verdict-badge" id="verdictBadge">—</span>
+            <h2 id="verdictTitle">—</h2>
+            <p id="verdictDetail">—</p>
+            <div class="stat-line" id="statLine"></div>
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <div class="bar-block">
+            <div class="bar-head"><span>ML model</span><span id="modelValue">—</span></div>
+            <div class="bar"><i id="modelBar"></i></div>
+          </div>
+          <div class="bar-block">
+            <div class="bar-head"><span>Rule engine</span><span id="ruleValue">—</span></div>
+            <div class="bar"><i id="ruleBar"></i></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-head">
+            <h3>Why</h3>
+            <span class="muted" id="reasonCount"></span>
+          </div>
+          <ul class="reasons" id="reasonList"></ul>
+        </div>
+
+        <div class="section" id="urlSection" hidden>
+          <div class="section-head">
+            <h3>Links found</h3>
+            <span class="muted">defanged · not opened</span>
+          </div>
+          <div class="url-list" id="urlList"></div>
+        </div>
+
+        <div class="section" id="sentenceSection" hidden>
+          <div class="section-head">
+            <h3>Sentences that moved the score</h3>
+            <span class="muted">leave-one-out test</span>
+          </div>
+          <ul class="sentence-list" id="sentenceList"></ul>
+        </div>
+
+        <div class="section" id="highlightSection" hidden>
+          <div class="section-head">
+            <h3>Flagged text</h3>
+            <span class="muted">matched phrases</span>
+          </div>
+          <div class="highlighted" id="highlightedText"></div>
+        </div>
+
+        <div class="section" id="rawSection" hidden>
+          <div class="section-head"><h3>Raw response</h3></div>
+          <pre class="raw" id="rawJson"></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>PhishinGAN · hybrid TF-IDF + intent + URL analysis</span>
+    <span>Built for learning · not a substitute for a secure mail gateway</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

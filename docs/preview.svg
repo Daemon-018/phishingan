@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">PhishinGAN UI preview</title>
+  <desc id="desc">A browser warning banner and extension popup showing a phishing risk score and reasons.</desc>
+
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 40) rotate(45) scale(900)">
+      <stop offset="0" stop-color="#16233a"/>
+      <stop offset="0.55" stop-color="#0b1018"/>
+      <stop offset="1" stop-color="#080c13"/>
+    </radialGradient>
+    <linearGradient id="logo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7ea6ff"/>
+      <stop offset="1" stop-color="#4472e6"/>
+    </linearGradient>
+    <linearGradient id="danger" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff5d6c"/>
+      <stop offset="1" stop-color="#ff8a5c"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <style>
+      text { font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif; }
+      .muted { fill: #93a4bb; }
+      .soft { fill: #b9c6d8; }
+      .white { fill: #e8eef7; }
+      .tiny { font-size: 11px; }
+      .small { font-size: 13px; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="620" rx="24" fill="url(#bg)"/>
+
+  <!-- header -->
+  <rect x="60" y="48" width="58" height="58" rx="16" fill="url(#logo)"/>
+  <path d="M89 61 74 67v12c0 9 6 16 15 19 9-3 15-10 15-19V67L89 61Z" fill="#0b1018"/>
+  <path d="m82.5 80 4.5 4.5 9-9" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="136" y="78" font-size="34" font-weight="800" fill="#f4f7fc" letter-spacing="-0.8">Phishin<tspan fill="#7ea6ff">GAN</tspan></text>
+  <text x="137" y="99" font-size="13" fill="#93a4bb">Phishing + Sharingan. It sees the signals.</text>
+
+  <g font-size="12" font-weight="600">
+    <rect x="820" y="52" width="120" height="28" rx="14" fill="#12251c" stroke="#2b5c43"/>
+    <circle cx="838" cy="66" r="4" fill="#3dd68c"/>
+    <text x="850" y="70" fill="#8ee7b8">Runs offline</text>
+
+    <rect x="952" y="52" width="100" height="28" rx="14" fill="#141d2b" stroke="#2a3a55"/>
+    <text x="970" y="70" fill="#a9bcd6">1.2 MB model</text>
+
+    <rect x="1064" y="52" width="80" height="28" rx="14" fill="#141d2b" stroke="#2a3a55"/>
+    <text x="1080" y="70" fill="#a9bcd6">No keys</text>
+  </g>
+
+  <!-- browser window -->
+  <g filter="url(#soft)">
+    <rect x="60" y="152" width="704" height="328" rx="16" fill="#0e1521" stroke="#24324a"/>
+  </g>
+  <rect x="60" y="152" width="704" height="42" rx="16" fill="#121a26"/>
+  <rect x="60" y="178" width="704" height="16" fill="#121a26"/>
+  <circle cx="84" cy="173" r="5" fill="#ff5d6c"/>
+  <circle cx="102" cy="173" r="5" fill="#ffb020"/>
+  <circle cx="120" cy="173" r="5" fill="#3dd68c"/>
+
+  <rect x="148" y="162" width="540" height="23" rx="11" fill="#0a0f17" stroke="#24324a"/>
+  <circle cx="164" cy="173.5" r="4.5" fill="none" stroke="#7f92ab" stroke-width="1.6"/>
+  <path d="M167.5 177l4 4" stroke="#7f92ab" stroke-width="1.6" stroke-linecap="round"/>
+  <text x="180" y="178" class="mono" font-size="11" fill="#cdd9ea">http://paypal-secure-login.xyz/verify</text>
+  <rect x="566" y="167" width="18" height="13" rx="2" fill="none" stroke="#ff5d6c" stroke-width="1.4"/>
+  <path d="M570 167v-3a5 5 0 0 1 10 0v3" fill="none" stroke="#ff5d6c" stroke-width="1.4"/>
+
+  <!-- warning banner -->
+  <rect x="76" y="210" width="672" height="82" rx="10" fill="#1b0b10" stroke="#ff5d6c" stroke-width="1.4"/>
+  <rect x="76" y="210" width="4" height="82" rx="2" fill="#ff5d6c"/>
+  <rect x="94" y="226" width="34" height="34" rx="10" fill="#2a1218"/>
+  <text x="104" y="249" font-size="18" font-weight="800" fill="#ff5d6c">!</text>
+
+  <text x="142" y="240" font-size="15" font-weight="700" fill="#ff5d6c">PhishinGAN: likely phishing page</text>
+  <text x="142" y="258" class="small" fill="#c9d4e4">Do not enter passwords, card numbers, or one-time codes.</text>
+
+  <g font-size="10.5" font-weight="600">
+    <rect x="142" y="267" width="168" height="18" rx="9" fill="#25151b" stroke="#4a2830"/>
+    <text x="151" y="279.5" fill="#f0c7cd">Password form posts off-site</text>
+    <rect x="318" y="267" width="160" height="18" rx="9" fill="#25151b" stroke="#4a2830"/>
+    <text x="327" y="279.5" fill="#f0c7cd">Look-alike domain</text>
+    <rect x="486" y="267" width="88" height="18" rx="9" fill="#25151b" stroke="#4a2830"/>
+    <text x="495" y="279.5" fill="#f0c7cd">Brand fake</text>
+  </g>
+
+  <!-- page skeleton -->
+  <rect x="94" y="314" width="188" height="10" rx="5" fill="#24324a"/>
+  <rect x="94" y="334" width="410" height="7" rx="3.5" fill="#1b2638"/>
+  <rect x="94" y="349" width="360" height="7" rx="3.5" fill="#1b2638"/>
+  <rect x="94" y="364" width="392" height="7" rx="3.5" fill="#1b2638"/>
+  <rect x="94" y="379" width="250" height="7" rx="3.5" fill="#1b2638"/>
+
+  <rect x="94" y="404" width="132" height="30" rx="8" fill="#1c2a40" stroke="#2a3a55"/>
+  <text x="112" y="423" font-size="11" fill="#a9bcd6">Email address</text>
+  <rect x="238" y="404" width="132" height="30" rx="8" fill="#1c2a40" stroke="#2a3a55"/>
+  <text x="256" y="423" font-size="11" fill="#a9bcd6">Password</text>
+  <rect x="382" y="404" width="104" height="30" rx="8" fill="#4472e6"/>
+  <text x="412" y="423" font-size="11" font-weight="700" fill="#ffffff">Log in</text>
+
+  <!-- popup -->
+  <g filter="url(#soft)">
+    <rect x="802" y="152" width="338" height="404" rx="16" fill="#101823" stroke="#24324a"/>
+  </g>
+  <rect x="802" y="152" width="338" height="54" rx="16" fill="#121a26"/>
+  <rect x="802" y="188" width="338" height="18" fill="#121a26"/>
+  <rect x="818" y="166" width="26" height="26" rx="8" fill="url(#logo)"/>
+  <path d="M831 170l-7 2.7v5.4c0 4 2.7 7.2 7 8.4 4.3-1.2 7-4.4 7-8.4v-5.4l-7-2.7Z" fill="#0b1018"/>
+  <text x="854" y="180" font-size="14" font-weight="700" fill="#e8eef7">PhishinGAN</text>
+  <text x="854" y="193" font-size="9.5" fill="#93a4bb">Local phishing detection</text>
+  <circle cx="1106" cy="179" r="12" fill="#172231" stroke="#24324a"/>
+  <circle cx="1106" cy="179" r="3" fill="none" stroke="#93a4bb" stroke-width="1.3"/>
+  <path d="M1108.4 181.4l3 3" stroke="#93a4bb" stroke-width="1.3" stroke-linecap="round"/>
+
+  <rect x="818" y="220" width="306" height="178" rx="12" fill="#141f2f" stroke="#24324a"/>
+  <rect x="818" y="220" width="3.5" height="178" rx="2" fill="#ff5d6c"/>
+  <rect x="836" y="236" width="30" height="30" rx="9" fill="#2a1218"/>
+  <text x="846" y="257" font-size="15" font-weight="800" fill="#ff5d6c">!</text>
+  <text x="878" y="249" font-size="15" font-weight="700" fill="#ff5d6c">Likely phishing</text>
+  <text x="878" y="265" font-size="10.5" fill="#93a4bb">Do not enter passwords or codes.</text>
+  <text x="836" y="288" class="mono" font-size="10" fill="#7f92ab">paypal-secure-login.xyz</text>
+
+  <rect x="836" y="301" width="270" height="6" rx="3" fill="#0a0f17"/>
+  <rect x="836" y="301" width="244" height="6" rx="3" fill="url(#danger)"/>
+  <text x="836" y="324" font-size="10" fill="#93a4bb">Risk</text>
+  <text x="866" y="324" font-size="10" font-weight="700" fill="#e8eef7">93/100</text>
+  <text x="1000" y="324" font-size="10" fill="#93a4bb">Rules 93%</text>
+
+  <rect x="836" y="338" width="270" height="44" rx="8" fill="#0f1724" stroke="#24324a"/>
+  <text x="846" y="355" font-size="10.5" font-weight="600" fill="#e8eef7">Password form posts off-site</text>
+  <text x="846" y="370" font-size="9.5" fill="#93a4bb">A login form sends data to another origin.</text>
+  <rect x="846" y="375" width="250" height="2.5" rx="1.25" fill="#0a0f17"/>
+  <rect x="846" y="375" width="228" height="2.5" rx="1.25" fill="#ff5d6c"/>
+
+  <rect x="818" y="412" width="146" height="38" rx="9" fill="#4472e6"/>
+  <text x="856" y="436" font-size="12" font-weight="700" fill="#ffffff">Scan this page</text>
+  <rect x="974" y="412" width="150" height="38" rx="9" fill="#141f2f" stroke="#24324a"/>
+  <text x="1015" y="436" font-size="12" font-weight="600" fill="#a9bcd6">Why?</text>
+
+  <rect x="818" y="466" width="306" height="1" fill="#24324a"/>
+  <text x="836" y="492" font-size="10" fill="#93a4bb">Model v1 · logistic regression</text>
+  <text x="836" y="508" font-size="10" fill="#6b7d95">Runs fully offline · no API keys</text>
+
+  <!-- footer -->
+  <text x="60" y="540" font-size="12" fill="#7f92ab">One 1.2 MB model. Three signals. A clear warning before you type a password.</text>
+  <text x="60" y="566" font-size="10.5" fill="#566780">UI preview — colors and layout match the extension.</text>
+</svg>
