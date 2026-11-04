@@ -17,6 +17,7 @@ No API keys. No accounts. No page text leaves your browser.
 [![Firefox 115+](https://img.shields.io/badge/Firefox-115%2B-FF7139?style=flat-square&logo=firefoxbrowser&logoColor=white)](#firefox)
 [![No API keys](https://img.shields.io/badge/offline-no%20API%20keys-3dd68c?style=flat-square)](#privacy)
 [![License MIT](https://img.shields.io/badge/license-MIT-7ea6ff?style=flat-square)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/Daemon-018/phishingan?style=flat-square)](https://github.com/Daemon-018/phishingan/releases/latest)
 
 </div>
 
@@ -60,14 +61,16 @@ The detector does not try to answer *“was this written by AI?”* — that is 
 
 The trained model is already included in `extension/model/model.json`. **You do not need Python, a GPU, or any API key to use the extension.**
 
-Clone or download the repo, then load the `extension/` folder as an unpacked extension.
+**Fastest install:** open the [latest release](https://github.com/Daemon-018/phishingan/releases/latest), download the bundle for your browser, unzip it, then load the unzipped folder as described below.
+
+Or clone the repo:
 
 ```bash
 git clone https://github.com/Daemon-018/phishingan.git
 cd phishingan
 ```
 
-Or download the ZIP from GitHub: **Code → Download ZIP**, then unzip it.
+Or download the source ZIP from GitHub: **Code → Download ZIP**, then unzip it.
 
 ---
 
@@ -87,7 +90,7 @@ These browsers all support the same Manifest V3 folder.
 
 2. Turn on **Developer mode**.
 3. Click **Load unpacked**.
-4. Select the **`extension`** folder from this repo (the one containing `manifest.json`).
+4. Select the **`extension`** folder from this repo (the one containing `manifest.json`). If you downloaded a release bundle, select the unzipped **`phishingan-chrome`** folder instead.
 5. Pin **PhishinGAN** to the toolbar.
 
 That’s it. Open Gmail or any login page, or click the icon and press **Scan this page**.
@@ -102,7 +105,7 @@ Firefox needs a slightly different manifest because it uses background scripts i
 
 1. Open `about:debugging#/runtime/this-firefox`.
 2. Click **Load Temporary Add-on…**
-3. Select **`extension/manifest.firefox.json`**.
+3. Select **`extension/manifest.firefox.json`** from a clone, or **`manifest.json`** inside the unzipped `phishingan-firefox` release folder.
 
 The extension stays loaded until Firefox restarts. This is the simplest way to try it.
 
