@@ -11,6 +11,7 @@
 A local-first browser extension that warns you before you type a password into a phishing page or trust a scam email.
 No API keys. No accounts. No page text leaves your browser.
 
+[![tests](https://github.com/Daemon-018/phishingan/actions/workflows/tests.yml/badge.svg)](https://github.com/Daemon-018/phishingan/actions/workflows/tests.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](pyproject.toml)
 [![Tests](https://img.shields.io/badge/tests-24%20passing-3dd68c?style=flat-square)](tests)
 [![Chrome MV3](https://img.shields.io/badge/Chrome-MV3-4285F4?style=flat-square&logo=googlechrome&logoColor=white)](#install)
