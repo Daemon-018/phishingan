@@ -405,6 +405,21 @@ Current state:
 
 ---
 
+## Contributing
+
+This is a two-person project, but the workflow is the same one you'd use on any team: branch, PR, green CI, review.
+
+```bash
+git switch -c feat/your-idea
+# ...make changes...
+pytest -q && npm run test:scenarios && npm run test:dom
+gh pr create --fill
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, branch naming, the "done" checklist, and a list of scoped first tasks.
+
+---
+
 ## Datasets and credits
 
 This project would not exist without these public corpora:
